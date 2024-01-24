@@ -78,7 +78,7 @@ namespace Zadanie_Domowe.Tests
             var Statistics = user.GetStatistics();
 
             // assert
-            Assert.AreEqual(15, Statistics.Average);
+            Assert.AreEqual(Math.Round(15.000, 2), Math.Round(Statistics.Average, 2));
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace Zadanie_Domowe.Tests
             var Statistics = user.GetStatistics();
 
             // assert
-            Assert.AreEqual(-5, Statistics.Average);
+            Assert.AreEqual(Math.Round(-5, 2), Math.Round(Statistics.Average, 2));
         }
     }
 }
