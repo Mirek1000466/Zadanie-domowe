@@ -1,12 +1,12 @@
 ﻿using Zadanie_domowe;
 
-var Employee = new Employee("Jan", "Nowak");
-Employee.AddGrade("200");
-Employee.AddGrade(29.64574567);
-Employee.AddGrade(5);
-var Statistics = Employee.GetStatistics();
-Console.WriteLine($"Imię : {Employee.Name}  Nazwisko : {Employee.Surname}");
+var employee = new Employee("Jan", "Nowak");
+employee.AddGrade("200");
+employee.AddGrade(29.64574567);
+employee.AddGrade(5);
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Imię : {employee.name}  Nazwisko : {employee.surname}");
 Console.WriteLine("    O C E N Y");
-Console.WriteLine($"Minimalna  {Statistics.Min:N2}");
-Console.WriteLine($"Maksymalna {Statistics.Max:N2}");
-Console.WriteLine($"Średnia    {Statistics.Average:N2}");
+Console.WriteLine($"Minimalna  {statistics.Min:N2}");
+Console.WriteLine($"Maksymalna {statistics.Max:N2}");
+Console.WriteLine($"Średnia    {statistics.Average:N2}");
