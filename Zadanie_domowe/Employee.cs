@@ -2,67 +2,67 @@
 {
     public class Employee
     {
-        private List<float> grades = new List<float>();
+        private List<float> Grades = new List<float>();
 
-        public Employee(string name, string surname)
+        public Employee(string Name, string Surname)
         {
-            this.Name = name;
-            this.Surname = surname;
+            this.Name = Name;
+            this.Surname = Surname;
         }
 
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
 
-        public void AddGrade(float grade)
+        public void AddGrade(float Grade)
         {
-            if (grade >= 0 && grade <= 100) 
+            if (Grade >= 0 && Grade <= 100) 
             {
-                this.grades.Add(grade);
+                this.Grades.Add(Grade);
             }
             else 
             {
-                Console.WriteLine($"The added value ({grade}) should be in the range <0..100>."); 
+                Console.WriteLine($"The added value ({Grade}) should be in the range <0..100>."); 
             }
         }
 
-        public void AddGrade(string grade)
+        public void AddGrade(string Grade)
         {
-            if (float.TryParse(grade, out float resunlt))
+            if (float.TryParse(Grade, out float resunlt))
             {
                 this.AddGrade(resunlt);
             }
             else
             {
-                Console.WriteLine($"String ({grade}) is not float.");
+                Console.WriteLine($"String ({Grade}) is not float.");
             }
         }
-        public void AddGrade(int grade)
+        public void AddGrade(int Grade)
         {
-            float resunlt = grade;
+            float resunlt = Grade;
             this.AddGrade(resunlt);
         }
-        public void AddGrade(double grade)
+        public void AddGrade(double Grade)
         {
-            float resunlt = (float)grade;
+            float resunlt = (float)Grade;
             this.AddGrade(resunlt);
         }
 
         public Statistics GetStatistics()
         {
-            var statsistics = new Statistics();
-            statsistics.Min = float.MaxValue;
-            statsistics.Max = float.MinValue;
-            statsistics.Average = 0;
-            foreach (var grade in this.grades)
+            var Statsistics = new Statistics();
+            Statsistics.Min = float.MaxValue;
+            Statsistics.Max = float.MinValue;
+            Statsistics.Average = 0;
+            foreach (var Grade in this.Grades)
             {
-                statsistics.Average += grade;
-                statsistics.Min = Math.Min(statsistics.Min, grade);
-                statsistics.Max = Math.Max(statsistics.Max, grade);
+                Statsistics.Average += Grade;
+                Statsistics.Min = Math.Min(Statsistics.Min, Grade);
+                Statsistics.Max = Math.Max(Statsistics.Max, Grade);
             }
-            statsistics.Average /= this.grades.Count;
+            Statsistics.Average /= this.Grades.Count;
 
-            return statsistics;
+            return Statsistics;
         }
 
     }
