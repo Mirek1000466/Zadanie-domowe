@@ -1,4 +1,6 @@
-﻿namespace Zadanie_domowe
+﻿using System.Diagnostics;
+
+namespace Zadanie_domowe
 {
     public class Employee
     {
@@ -49,7 +51,7 @@
             this.AddGrade(resunlt);
         }
 
-        public Statistics GetStatistics()
+        public Statistics GetStatisticsWithForEatch()
         {
             var statsistics = new Statistics();
             statsistics.Min = float.MaxValue;
@@ -62,9 +64,65 @@
                 statsistics.Max = Math.Max(statsistics.Max, grade);
             }
             statsistics.Average /= this.grades.Count;
-
             return statsistics;
         }
+        public Statistics GetStatisticsWithFor()
+        {
+            var statsistics = new Statistics();
+            statsistics.Min = float.MaxValue;
+            statsistics.Max = float.MinValue;
+            statsistics.Average=0;
+            for (int index=0;index<this.grades.Count ;index++ ) 
+            {
+                var grade = this.grades[index];
+                statsistics.Average+=grade;
+                statsistics.Min = Math.Min(statsistics.Min, grade);
+                statsistics.Max = Math.Max(statsistics.Max, grade);
+            }
+            statsistics.Average /= this.grades.Count;
+            return statsistics;
+        }
+        public Statistics GetStatisticsWithWhil()
+        {
+            var statsistics = new Statistics();
+            statsistics.Min = float.MaxValue;
+            statsistics.Max = float.MinValue;
+            statsistics.Average=0;
+            var index=0;
+            while (index<this.grades.Count) 
+            {
+                var grade = this.grades[index];
+                statsistics.Average += grade;
+                statsistics.Min = Math.Min(statsistics.Min, grade);
+                statsistics.Max = Math.Max(statsistics.Max, grade);
+                index++;
+            }statsistics.Average /= this.grades.Count;
+            return statsistics;
+        }
+        public Statistics GetStatisticsWithDoWhil()
+        {
+            var statsistics = new Statistics();
+            statsistics.Min = float.MaxValue;
+            statsistics.Max = float.MinValue;
+            statsistics.Average = 0;
+            var index = 0;
+            if (this.grades.Count > index)
+            {
+                do
+                {
+                    var grade = this.grades[index];
+                    statsistics.Average += grade;
+                    statsistics.Min = Math.Min(statsistics.Min, grade);
+                    statsistics.Max = Math.Max(statsistics.Max, grade);
+                    index++;
+                }
+                while (index < this.grades.Count);
+                statsistics.Average /= this.grades.Count;
+
+            }
+            return statsistics;
+        }
+
 
     }
 }
