@@ -29,12 +29,7 @@ namespace Zadanie_domowe
             }
             else 
             {
-                var itemX = Console.CursorLeft;
-                var itemY = Console.CursorTop;
-                Console.Write("Błąd <0..100> lub <A..E>.");
-                Thread.Sleep(2000);
-                Console.SetCursorPosition(itemX, itemY);
-                Console.Write("                         ");
+                throw new Exception("Błąd <0..100> lub <A..E>.");
             }
         }
 
@@ -53,50 +48,39 @@ namespace Zadanie_domowe
                 }
                 else
                 {
-                    var itemX = Console.CursorLeft;
-                    var itemY = Console.CursorTop;
-                    Console.Write("Błąd <0..100> lub <A..E>.");
-                    Thread.Sleep(2000);
-                    Console.SetCursorPosition(itemX, itemY);
-                    Console.Write("                         ");
+                        throw new Exception("Błąd <0..100> lub <A..E>.");
                 }
             }
         }
 
-        public void AddGrade(char grade)
-        {
-            switch(grade)
+            public void AddGrade(char grade)
             {
-                case 'A':
-                case 'a':
-                    this.AddGrade(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.AddGrade(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.AddGrade(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.AddGrade(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.AddGrade(20);
-                    break;
-                default:
-                    var itemX = Console.CursorLeft;
-                    var itemY = Console.CursorTop;
-                    Console.Write("Błąd <A..E>.");
-                    Thread.Sleep(2000);
-                    Console.SetCursorPosition(itemX, itemY);
-                    Console.Write("            ");
-                    break;
+                switch(grade)
+                {
+                    case 'A':
+                    case 'a':
+                        this.AddGrade(100);
+                        break;
+                    case 'B':
+                    case 'b':
+                        this.AddGrade(80);
+                        break;
+                    case 'C':
+                    case 'c':
+                        this.AddGrade(60);
+                        break;
+                    case 'D':
+                    case 'd':
+                        this.AddGrade(40);
+                        break;
+                    case 'E':
+                    case 'e':
+                        this.AddGrade(20);
+                        break;
+                    default:
+                        throw new Exception("Błąd litery <A..E>.");
+                }
             }
-        }
         public void AddGrade(double grade)
         {
             float resunlt = (float)grade;

@@ -1,26 +1,26 @@
 ﻿using Zadanie_domowe;
 
-Console.WriteLine("╔═════════════════════════════════════════════════════════╗");
-Console.WriteLine("║                WITAM W PROGRAMIE BELFER                 ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
-Console.WriteLine("║ Pracownikowi można przyznać ocenę liczbową z przedziału ║");
-Console.WriteLine("║   <0..100>  lub w postaci litery od A = 100 do E = 20   ║");
-Console.WriteLine("║                                                         ║");
-Console.WriteLine("║   Wprowadzenie  znaku q spowoduje wyjście z programu.   ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
+Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
+Console.WriteLine("║                   WITAM W PROGRAMIE BELFER                    ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║    Pracownikowi można przyznać ocenę liczbową z przedziału    ║");
+Console.WriteLine("║      <0..100>  lub w postaci litery od A = 100 do E = 20      ║");
+Console.WriteLine("║                                                               ║");
+Console.WriteLine("║  Wprowadzenie znaku 'q' lub 'Q' spowoduje wyjście z programu. ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
 Console.Write("║ Podaj ocenę pracownika : ");
 int itemX = Console.CursorLeft;
 int itemY = Console.CursorTop;
-Console.WriteLine("                               ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
-Console.WriteLine("║ Ocena Minimalna  :                                      ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
-Console.WriteLine("║ Ocena Maksymalna :                                      ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
-Console.WriteLine("║ Ocena Średnia    :                                      ║");
-Console.WriteLine("╠═════════════════════════════════════════════════════════╣");
-Console.WriteLine("║ Ocena Końcowa    :                                      ║");
-Console.WriteLine("╚═════════════════════════════════════════════════════════╝");
+Console.WriteLine("                                     ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║ Ocena Minimalna  :                                            ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║ Ocena Maksymalna :                                            ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║ Ocena Średnia    :                                            ║");
+Console.WriteLine("╠═══════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║ Ocena Końcowa    :                                            ║");
+Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
 var employee = new Employee();
 while(true) 
 { 
@@ -34,7 +34,19 @@ while(true)
         break;
     }
     Console.SetCursorPosition(itemX, itemY);
-    employee.AddGrade(input);
+    try 
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.SetCursorPosition (itemX, itemY);
+        Console.Write($"Exception {e.Message}");
+        Thread.Sleep(3000);
+        Console.SetCursorPosition(itemX, itemY);
+        Console.Write ("                                    ");
+    }
+  
     var statistics = employee.GetStatistics();
     if(statistics.Max > -1)
     {
