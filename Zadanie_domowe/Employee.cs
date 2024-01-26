@@ -12,10 +12,15 @@ namespace Zadanie_domowe
             this.surname = surname;
         }
 
+        public Employee()
+        {
+
+        }
+
         public string name { get; private set; }
 
         public string surname { get; private set; }
-
+                
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100) 
@@ -24,7 +29,12 @@ namespace Zadanie_domowe
             }
             else 
             {
-                Console.WriteLine($"The added value ({grade}) should be in the range <0..100>."); 
+                var itemX = Console.CursorLeft;
+                var itemY = Console.CursorTop;
+                Console.Write("Błąd <0..100> lub <A..E>.");
+                Thread.Sleep(2000);
+                Console.SetCursorPosition(itemX, itemY);
+                Console.Write("                         ");
             }
         }
 
@@ -32,18 +42,60 @@ namespace Zadanie_domowe
         {
             if (float.TryParse(grade, out float resunlt))
             {
-                this.AddGrade(resunlt);
+                    this.AddGrade(resunlt);
             }
             else
             {
-                Console.WriteLine($"String ({grade}) is not float.");
+                if (grade.Length == 1)
+                {
+                    var charakter = grade[0];
+                    this.AddGrade(charakter);
+                }
+                else
+                {
+                    var itemX = Console.CursorLeft;
+                    var itemY = Console.CursorTop;
+                    Console.Write("Błąd <0..100> lub <A..E>.");
+                    Thread.Sleep(2000);
+                    Console.SetCursorPosition(itemX, itemY);
+                    Console.Write("                         ");
+                }
             }
         }
 
-        public void AddGrade(int grade)
+        public void AddGrade(char grade)
         {
-            float resunlt = grade;
-            this.AddGrade(resunlt);
+            switch(grade)
+            {
+                case 'A':
+                case 'a':
+                    this.AddGrade(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddGrade(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddGrade(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddGrade(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddGrade(20);
+                    break;
+                default:
+                    var itemX = Console.CursorLeft;
+                    var itemY = Console.CursorTop;
+                    Console.Write("Błąd <A..E>.");
+                    Thread.Sleep(2000);
+                    Console.SetCursorPosition(itemX, itemY);
+                    Console.Write("            ");
+                    break;
+            }
         }
         public void AddGrade(double grade)
         {
@@ -54,8 +106,8 @@ namespace Zadanie_domowe
         public Statistics GetStatistics()
         {
             var statsistics = new Statistics();
-            statsistics.Min = float.MaxValue;
-            statsistics.Max = float.MinValue;
+            statsistics.Min = 100;
+            statsistics.Max = -1;
             statsistics.Average = 0;
             foreach (var grade in this.grades)
             {
@@ -64,6 +116,25 @@ namespace Zadanie_domowe
                 statsistics.Max = Math.Max(statsistics.Max, grade);
             }
             statsistics.Average /= this.grades.Count;
+            switch (statsistics.Average) 
+            {
+                case var average  when average >= 80:
+                    statsistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statsistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statsistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statsistics.AverageLetter = 'D';
+                    break;
+                default :
+                    statsistics.AverageLetter = 'E';
+                    break;
+                
+            }
             return statsistics;
         }
 

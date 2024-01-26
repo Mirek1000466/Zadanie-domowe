@@ -5,10 +5,47 @@ namespace Zadanie_Domowe.Tests
     public class Tests
     {
         [Test]
+        public void WhenCharAdded_ShouldAddedpoints()
+        {
+            // arrsnge
+            var employee = new Employee();
+            employee.AddGrade('A');
+
+
+            // act
+            var user = employee.GetStatistics();
+            var statistics = employee.GetStatistics();
+
+            // assert
+            Assert.AreEqual(100, statistics.Min);
+            Assert.AreEqual(100, statistics.Min);
+            Assert.AreEqual(100, statistics.Average);
+            Assert.AreEqual('A', statistics.AverageLetter);
+        }
+
+        [Test]
+        public void WhenStringAdded_ShouldAddedPoints()
+        {
+            // arrsnge
+            var employee = new Employee();
+            employee.AddGrade("25,75");
+
+
+            // act
+            var statistics = employee.GetStatistics();
+
+            // assert
+            Assert.AreEqual(25.75, statistics.Min);
+            Assert.AreEqual(25.75, statistics.Min);
+            Assert.AreEqual(25.75, statistics.Average);
+            Assert.AreEqual('D', statistics.AverageLetter);
+        }
+
+        [Test]
         public void WhenThreePointsAdded_ShouldReturnMinimum()
         {
             // arrsnge
-            var user = new Employee("Jan", "Nowak");
+            var user = new Employee();
             user.AddGrade(5);
             user.AddGrade(10);
             user.AddGrade(20);
@@ -21,25 +58,10 @@ namespace Zadanie_Domowe.Tests
         }
 
         [Test]
-        public void WhenTwoPointsAdded_ShouldNegativeMinimumm()
-        {
-            // arrsnge        
-            var user = new Employee("Jan", "Nowak");
-            user.AddGrade(10);
-            user.AddGrade(-20);
-
-            // act
-            var Statistics = user.GetStatistics();
-
-            // assert
-            Assert.AreEqual(-20, Statistics.Min);
-        }
-
-        [Test]
         public void WhenThreePointsAdded_ShouldReturnMaksimum()
         {
             // arrsnge        
-            var user = new Employee("Jan", "Nowak");
+            var user = new Employee();
             user.AddGrade(5);
             user.AddGrade(10);
             user.AddGrade(20);
@@ -51,26 +73,12 @@ namespace Zadanie_Domowe.Tests
             Assert.AreEqual(20, Statistics.Max);
         }
 
-        [Test]
-        public void WhenNegativePointsAdded_ShouldReturnMaksimum()
-        {
-            // arrsnge        
-            var user = new Employee("Jan", "Nowak");
-            user.AddGrade(10);
-            user.AddGrade(-20);
-
-            // act
-            var Statistics = user.GetStatistics();
-
-            // assert
-            Assert.AreEqual(10, Statistics.Max);
-        }
-
+        
         [Test]
         public void WhenTwoPointsAdded_ShouldReturnAverage()
         {
             // arrsnge        
-            var user = new Employee("Jan", "Nowak");
+            var user = new Employee();
             user.AddGrade(10);
             user.AddGrade(20);
 
@@ -85,7 +93,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenNegativePointsAdded_ShouldReturnAverage()
         {
             // arrsnge        
-            var user = new Employee("Jan", "Nowak");
+            var user = new Employee();
             user.AddGrade(10);
             user.AddGrade(-20);
 
@@ -93,7 +101,7 @@ namespace Zadanie_Domowe.Tests
             var Statistics = user.GetStatistics();
 
             // assert
-            Assert.AreEqual(Math.Round(-5, 2), Math.Round(Statistics.Average, 2));
+            Assert.AreEqual(10 , Math.Round(Statistics.Average, 2));
         }
     }
 }
