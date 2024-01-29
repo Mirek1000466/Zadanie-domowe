@@ -2,24 +2,25 @@
 
 namespace Zadanie_domowe
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
+        public Employee()
+            : this("no name","no surname")
+        {
+        }
 
         public Employee(string name, string surname)
+            : this(name, surname, ' ')
         {
-            this.name = name;
-            this.surname = surname;
         }
 
-        public Employee()
+        public Employee(string name, string surname, char sex)
+            : base(name, surname, sex)
         {
-
         }
 
-        public string name { get; private set; }
-
-        public string surname { get; private set; }
+        //public string Surname { get; private set; }
                 
         public void AddGrade(float grade)
         {
@@ -102,16 +103,16 @@ namespace Zadanie_domowe
             statsistics.Average /= this.grades.Count;
             switch (statsistics.Average) 
             {
-                case var average  when average >= 80:
+                case var average when average >= 81:
                     statsistics.AverageLetter = 'A';
                     break;
-                case var average when average >= 60:
+                case var average when average >= 61:
                     statsistics.AverageLetter = 'B';
                     break;
-                case var average when average >= 40:
+                case var average when average >= 41:
                     statsistics.AverageLetter = 'C';
                     break;
-                case var average when average >= 20:
+                case var average when average >= 21:
                     statsistics.AverageLetter = 'D';
                     break;
                 default :
