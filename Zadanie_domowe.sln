@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zadanie_domowe", "Zadanie_domowe\Zadanie_domowe.csproj", "{013D595B-0CCA-4233-8315-D5B1B1B6C257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie_Domowe.Tests", "Zadanie_Domowe.Tests\Zadanie_Domowe.Tests.csproj", "{6A8B26B3-E4EB-48E3-9870-B848578B3011}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zadanie_Domowe.Tests", "Zadanie_Domowe.Tests\Zadanie_Domowe.Tests.csproj", "{6A8B26B3-E4EB-48E3-9870-B848578B3011}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using Zadanie_domowe;
-
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
 Console.Write("║                   ");
@@ -65,8 +64,7 @@ int itemY = Console.CursorTop;
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("                                     ║");
 Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
-//var employee = new Employee("Jan", "Nowak",'M');
-var employee = new Employee("Jan", "Nowak", 'M');
+var employee = new Employee("Jan", "Nowak",'M');
 
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.SetCursorPosition(9, itemY - 10);
@@ -79,7 +77,7 @@ while (true)
 { 
     Console.ForegroundColor = ConsoleColor.White;
     Console.SetCursorPosition(itemX, itemY);
-    Console.Write("      ");
+    Console.Write("        ");
     Console.SetCursorPosition(itemX, itemY);
     var input = Console.ReadLine();
     if (input == "q" || input == "Q")
@@ -100,9 +98,8 @@ while (true)
         Console.SetCursorPosition(itemX, itemY);
         Console.Write ("                                    ");
     }
-  
     var statistics = employee.GetStatistics();
-    if(statistics.Max > -1)
+    if (statistics.Max > -1)
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.SetCursorPosition(itemX, itemY - 8);
