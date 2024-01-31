@@ -8,7 +8,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenCharAdded_ShouldAddedpoints()
         {
             // arrsnge
-            var employee = new Employee("Jan","Nowak",'M');
+            var employee = new EmployeeMemory("Jan","Nowak",'M');
             employee.AddGrade('A');
 
 
@@ -27,7 +27,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenStringAdded_ShouldAddedPoints()
         {
             // arrsnge
-            var employee = new Employee("Jan", "Nowak", 'M');
+            var employee = new EmployeeMemory("Jan", "Nowak", 'M');
             employee.AddGrade("25,75");
 
 
@@ -45,7 +45,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenThreePointsAdded_ShouldReturnMinimum()
         {
             // arrsnge
-            var user = new Employee("Jan", "Nowak", 'M');
+            var user = new EmployeeMemory("Jan", "Nowak", 'M');
             user.AddGrade(5);
             user.AddGrade(10);
             user.AddGrade(20);
@@ -59,9 +59,9 @@ namespace Zadanie_Domowe.Tests
 
         [Test]
         public void WhenThreePointsAdded_ShouldReturnMaksimum()
-        {
+        { 
             // arrsnge        
-            var user = new Employee("Jan", "Nowak", 'M');
+            var user = new EmployeeMemory("Jan", "Nowak", 'M');
             user.AddGrade(5);
             user.AddGrade(10);
             user.AddGrade(20);
@@ -78,7 +78,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenTwoPointsAdded_ShouldReturnAverage()
         {
             // arrsnge        
-            var user = new Employee("Jan", "Nowak", 'M');
+            var user = new EmployeeMemory("Jan", "Nowak", 'M');
             user.AddGrade(10);
             user.AddGrade(20);
 
@@ -93,7 +93,7 @@ namespace Zadanie_Domowe.Tests
         public void WhenNegativePointsAdded_ShouldReturnAverage()
         {
             // arrsnge        
-            var user = new Employee("Jan", "Nowak", 'M');
+            var user = new EmployeeMemory("Jan", "Nowak", 'M');
             user.AddGrade(10);
             user.AddGrade(-20);
 
