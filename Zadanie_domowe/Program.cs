@@ -64,7 +64,8 @@ int itemY = Console.CursorTop;
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("                                     ║");
 Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
-var employee = new Employee("Jan", "Nowak",'M');
+//var employee = new Employee("Jan", "Nowak", 'M');
+var employee = new EmployeeFile ("Jan", "Nowak", 'M');
 
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.SetCursorPosition(9, itemY - 10);

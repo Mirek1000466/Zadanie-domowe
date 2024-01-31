@@ -1,7 +1,7 @@
 ﻿namespace Zadanie_domowe
 {
     public class Supervisor : IEmployee
-    {   List<float> grades = new List<float>();
+    {   private List<float> grades = new List<float>();
         public Supervisor(string name, string sourname, char sex)
         {
             this.Name = name;
