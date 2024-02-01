@@ -1,7 +1,10 @@
 ﻿namespace Zadanie_domowe
 {
     public class Supervisor : IEmployee
-    {   private List<float> grades = new List<float>();
+    {
+        public event EmployeeBase.GradeAddedDelegate GradeAdded;
+
+        private List<float> grades = new List<float>();
         public Supervisor(string name, string sourname, char sex)
         {
             this.Name = name;
@@ -13,6 +16,7 @@
         public string Surname { get; private set; }
 
         public char Sex { get; private set; }
+
 
         public void AddGrade(float grade)
         {

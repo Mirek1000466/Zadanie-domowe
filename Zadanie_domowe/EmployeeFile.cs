@@ -6,13 +6,14 @@ namespace Zadanie_domowe
     public class EmployeeFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
+        public override event GradeAddedDelegate GradeAdded;
 
         public EmployeeFile(string name, string surname, char sex) 
             : base(name, surname, sex)
         {
             
         }
-
+                
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -20,6 +21,10 @@ namespace Zadanie_domowe
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+                    if(GradeAdded != null) 
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             else 

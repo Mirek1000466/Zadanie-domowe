@@ -64,8 +64,18 @@ int itemY = Console.CursorTop;
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("                                     ║");
 Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
-//var employee = new Employee("Jan", "Nowak", 'M');
-var employee = new EmployeeFile ("Jan", "Nowak", 'M');
+var employee = new EmployeeMemory ("Jan", "Nowak", 'M');
+//if (employee =  Zadanie_domowe.EmployeeFile ) 
+{
+    
+}
+employee.GradeAdded += EmployeeGradeAdded;
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.WriteLine("Dodano nową ocenę!");
+    Thread.Sleep(3000);
+}
 
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.SetCursorPosition(9, itemY - 10);
@@ -78,7 +88,7 @@ while (true)
 { 
     Console.ForegroundColor = ConsoleColor.White;
     Console.SetCursorPosition(itemX, itemY);
-    Console.Write("        ");
+    Console.Write("                     ");
     Console.SetCursorPosition(itemX, itemY);
     var input = Console.ReadLine();
     if (input == "q" || input == "Q")
