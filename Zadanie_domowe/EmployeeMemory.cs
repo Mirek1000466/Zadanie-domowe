@@ -94,33 +94,9 @@ namespace Zadanie_domowe
         public override Statistics GetStatistics()
         {
             var statsistics = new Statistics();
-            statsistics.Min = 100;
-            statsistics.Max = -1;
-            statsistics.Average = 0;
-            foreach (var grade in this.grades)
+            foreach (var grade in this.grades) 
             {
-                statsistics.Average += grade;
-                statsistics.Min = Math.Min(statsistics.Min, grade);
-                statsistics.Max = Math.Max(statsistics.Max, grade);
-            }
-            statsistics.Average /= this.grades.Count;
-            switch (statsistics.Average)
-            {
-                case var average when average >= 81:
-                    statsistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 61:
-                    statsistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 41:
-                    statsistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 21:
-                    statsistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statsistics.AverageLetter = 'E';
-                    break;
+                statsistics.AddGrade(grade);
             }
             return statsistics;
         }
